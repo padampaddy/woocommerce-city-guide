@@ -16,6 +16,8 @@ if (is_admin()) {
         <img style="max-height:300px" id="image_url" src="" /><br>
         <input type="hidden" id="cg_category_image" name="cg_category_image" />
         <select name="cg_category_parent" id="cg_category_parent">
+                        <option value="0">No Parent</option>
+
             <?php
             $categories = Category::getAllAsArray(null);
             foreach ($categories as $category) {

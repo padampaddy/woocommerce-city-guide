@@ -32,8 +32,10 @@ if (is_admin() && $_GET["cg_place_id"]) {
             <?php
             $categories = Category::getAllAsArray(null);
             foreach ($categories as $category) {
+                 if(!isset($category["parent"]) || $category["parent"]==0) continue;
+            $parent = Category::withId($category['parent']);
             ?>
-                <option <?= strval($place->category->id) === $category["id"] ? "selected" : "" ?> value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+                <option <?= strval($place->category->id) === $category["id"] ? "selected" : "" ?> value="<?= $category["id"] ?>"><?=  $category["name"] ."(".$parent->name.")" ?></option>
             <?php
             }
             ?>

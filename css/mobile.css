@@ -67,6 +67,7 @@ section.browse-section h1 {
     font-size: 45px;
     letter-spacing: 20px;
     font-weight:600;
+    text-transform:uppercase;
 }
 .browse-section li{
     margin-bottom:20px;

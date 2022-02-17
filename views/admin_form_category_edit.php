@@ -12,6 +12,8 @@ if (is_admin() && isset($_GET["category"]) && $_GET["category"] !== "1") {
     <h4>Edit Category</h4>
     <input required id="cg_edit_category_name" type="text" name="cg_category_name" value="<?= $c->name ?>" placeholder="Category Name" />
     <select name="cg_edit_category_parent" id="cg_edit_category_parent">
+                    <option value="0">No Parent</option>
+
         <?php
         $categories = Category::getAllAsArray(null);
         foreach ($categories as $category) {

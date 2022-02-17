@@ -8,10 +8,6 @@ class MainController
     {
         add_action("wp_enqueue_scripts", [$this, 'enqueueStyles']);
         add_shortcode("cg_listing_page", [$this, "cgListingPageShortcode"]);
-        add_shortcode("cg_listing_page_mobile", [$this, "cgListingMobilePageShortcode"]);
-        add_shortcode("cg_sub_listing_page_mobile", [$this, "cgSubListingMobilePageShortcode"]);
-        add_shortcode("cg_sub_sub_listing_page_mobile", [$this, "cgSubSubListingMobilePageShortcode"]);
-        add_shortcode("cg_detail_listing_page_mobile", [$this, "cgListingDetailMobilePageShortcode"]);
         add_shortcode("cg_listing_detail_page", [$this, "cgListingDetailPageShortcode"]);
         add_shortcode("cg_listing_user_form", [$this, "cgListingUserFormShortcode"]);
     }
@@ -21,10 +17,6 @@ class MainController
         wp_register_style(
             'cg_listing_style',
             PLUGIN_CITY_GUIDE__URL__ . '/css/main.css'
-        );
-        wp_register_style(
-            'cg_listing_style_mobile',
-            PLUGIN_CITY_GUIDE__URL__ . '/css/mobile.css'
         );
     }
 
@@ -41,7 +33,7 @@ class MainController
         <div class="listing-searchbar">
             <form method="get">
                 <input value="' . (isset($_GET['cg_query']) ? $_GET['cg_query'] : '') . '" type="text" name="cg_query" class="" placeholder="Search">
-                <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+                <button type="submit" class="search-btn">Search</button>
             </form>
         </div>
         <div class="wrapper-category-list">
@@ -86,41 +78,5 @@ class MainController
         return $ret;
     }
 
-    public function cgListingMobilePageShortcode()
-    {
-        wp_enqueue_style('cg_listing_style_mobile');
-        ob_start();
-        include_once(PLUGIN_CITY_GUIDE__DIR__ . "/views/listing-page-mobile.php");
-        $ret .= ob_get_contents();
-        ob_end_clean();
-        return $ret;
-    }
-    public function cgSubListingMobilePageShortcode()
-    {
-        wp_enqueue_style('cg_listing_style_mobile');
-        ob_start();
-        include_once(PLUGIN_CITY_GUIDE__DIR__ . "/views/sub-listing-page-mobile.php");
-        $ret .= ob_get_contents();
-        ob_end_clean();
-        return $ret;
-    }
-    public function cgSubSubListingMobilePageShortcode()
-    {
-        wp_enqueue_style('cg_listing_style_mobile');
-        ob_start();
-        include_once(PLUGIN_CITY_GUIDE__DIR__ . "/views/sub-sub-listing-page-mobile.php");
-        $ret .= ob_get_contents();
-        ob_end_clean();
-        return $ret;
-    }
-    public function cgListingDetailMobilePageShortcode()
-    {
-        wp_enqueue_style('cg_listing_style_mobile');
-        ob_start();
-        include_once(PLUGIN_CITY_GUIDE__DIR__ . "/views/detail-listing-page-mobile.php");
-        $ret .= ob_get_contents();
-        ob_end_clean();
-        return $ret;
-    }
 }
 new MainController();

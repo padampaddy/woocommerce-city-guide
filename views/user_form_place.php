@@ -12,10 +12,12 @@ wp_enqueue_script('jquery');
     <br><label for="cg_place_category">Category</label><br>
     <select name="cg_place_category" id="cg_place_category">
         <?php
-        $categories = Category::getAllAsArray();
+        $categories = Category::getAllAsArray(null);
         foreach ($categories as $category) {
+            if(!isset($category["parent"]) || $category["parent"]==0) continue;
+            $parent = Category::withId($category['parent']);
         ?>
-            <option value="<?= $category["id"] ?>"><?= $category["name"] ?></option>
+            <option value="<?= $category["id"] ?>"><?= $category["name"] ."(".$parent->name.")" ?></option>
         <?php
         }
         ?>
