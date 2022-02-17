@@ -114,12 +114,20 @@ class Place
         $rows = $wpdb->get_results($sql, ARRAY_A);
         return $rows;
     }
+    public static function getWithCategory($category): array
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . "places";
+        $sql = sprintf("SELECT * from $table_name where status='active' and category=%s", $category);
+        $rows = $wpdb->get_results($sql, ARRAY_A);
+        return $rows;
+    }
     public static function getTotalPagesWithParams($category = 'all', $query = "%"): int
     {
         global $wpdb;
         $table_name = $wpdb->prefix . "places";
         $sql = sprintf("SELECT count(*) as count from $table_name where status='active' %s %s", $category === 'all' ? '' : "and category=$category", $query === '%' ? '' : "and name like '%$query%'");
-        return (intval($wpdb->get_row($sql, ARRAY_A)["count"])/10+1) ?? 1;
+        return (intval($wpdb->get_row($sql, ARRAY_A)["count"]) / 10 + 1) ?? 1;
     }
     public static function getTotalCount(): int
     {

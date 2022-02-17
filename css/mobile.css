@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
+body{
+    box-sizing:border-box;
+    padding:0;
+    font-family: 'Poppins', sans-serif;
+    margin:0;
+}
+ul, li{
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+section.browse-section li img,  .cuisine-section img, .directory-img img{
+    height: 400px;
+    object-fit: cover;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.cuisine-section img, .directory-img img{
+    border-radius:0;
+}
+.cover-content h4 {
+    color: #fff;
+    font-size: 28px;
+    margin: 10px 0;
+    letter-spacing: 6px;
+    font-weight: 900;
+    position:relative
+}
+.cover-content h4:after, .cover-content h4:before {
+    position: absolute;
+    content: "";
+    height: 6px;
+    width: 90px;
+    background: #01a2ea;
+    top: 17px;
+    left: 10px;
+}
+.cover-content h4:before{
+    background: #01a2ea;
+    right: 12px;
+    left: auto;
+    top: 17px;
+    width: 97px;
+}
+.container{
+    max-width:1280px;
+    padding:0 15px;
+    margin:auto;
+}
+section.cuisine-section ul li{
+    position:relative;
+}
+section.cuisine-section ul li h4 {
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -23px;
+    letter-spacing: 5px;
+    font-weight: 900;
+    font-size: 22px;
+}
+section.browse-section h1 {
+    text-align: center;
+    font-size: 45px;
+    letter-spacing: 20px;
+    font-weight:600;
+}
+.browse-section li{
+    margin-bottom:20px;
+}
+section.browse-section h4,  .cuisine-section h4{
+    text-align: center;
+    background-color: #01a2ea;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0;
+    padding: 7px 0;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.cuisine-section h4{
+    border-radius:0;
+}
+.cuisine-box {
+    border: 1px solid #01a2ea;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+img{
+    width:100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.city-guide-banner h2, .cover-content h2{
+    position: relative;
+    font-size: 113px;
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+    z-index: 999;
+    line-height: 94px;
+    font-family: 'Paytone One', sans-serif;
+}
+.city-guide-banner h2 span, .cover-content h2 span{
+    position: absolute;
+    top: 37px;
+    left: 0;
+    right: 0;
+    font-size: 64px;
+    color: #01a2ea;
+    font-weight: 900;
+    font-family: 'Paytone One', sans-serif;
+
+}
+section iframe {
+    width: 100%;
+}
+
+.cuisine-section h1 {
+    font-size: 35px;
+    text-align: center;
+    color: #000;
+    margin: 30px 0 50px;
+    font-weight: 600;
+}
+.cover-content{
+    text-align:center;
+    padding:50px 0;
+}
+.city-guide-banner{
+    background-image: url('../images/banner.jpg');
+    background-size:cover;
+    text-align:center;
+    padding:250px 0;
+}
+.directory-section{
+    padding: 50px 10px;
+}
+.directory-section li{
+    position:relative;
+    margin-bottom:30px;
+}
+section.directory-section li h4 {
+    position: absolute;
+    bottom: 0;
+    background:rgb(203 203 201 / 70%);
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 6px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+    bottom: 4px;
+}
+.directory-img {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 4px solid #06a2ec;
+}
+.cover{
+    background-image: url('../images/cover.jpg');
+    height:600px;
+    background-size: cover;
+}
+.footer-top{
+    display:flex;
+}
+
+.cover-content {
+    background: rgba(29, 33, 32, 0.5);
+}
+.cover-btn {
+    background: #fff;
+    max-width: 129px;
+    text-align: center;
+    padding: 10px;
+    font-weight: 900;
+    font-size: 22px;
+    border-radius: 6px;
+    color: #048dce;
+    margin: auto;
+    margin-top: -26px;
+}
+.footer-top {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+}
+section.footer h1 {
+    margin: 0;
+    color: #fff;
+}
+section.footer {
+    background: #01a2ea;
+    padding: 45px;
+    text-align: center;
+}
+.footer-top div {
+    margin: 5px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 33.33%;
+}
+
+@media only screen and (max-width: 600px) {
+    section.browse-section li img, .cuisine-section img, .directory-img img {
+        height: 170px;
+        object-fit: cover;
+    }
+    .city-guide-banner{
+        padding:50px 0;
+    }
+
+
+}

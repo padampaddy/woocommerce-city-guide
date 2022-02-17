@@ -32,7 +32,7 @@ class CategoryListTable extends WP_List_Table
         $sortable = [];
         $this->process_bulk_action();
         $this->_column_headers = array($columns, $hidden, $sortable);
-        $this->items = Category::getAllAsArray();
+        $this->items = Category::getAllAsArray(null);
     }
 
     function column_default($item, $column_name)

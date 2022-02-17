@@ -61,7 +61,9 @@ class CityGuide
     public function addCGCategory()
     {
         $name = sanitize_text_field($_POST['cg_category_name']);
-        $category = new Category($name, null, null);
+        $image = sanitize_text_field($_POST['cg_category_image']);
+        $parent = sanitize_text_field($_POST['cg_category_parent']);
+        $category = new Category($name, null, null, $image, $parent);
         Category::save($category);
         wp_redirect(admin_url('admin.php?page=cg_categories'));
         exit();
@@ -70,8 +72,12 @@ class CityGuide
     {
         $name = sanitize_text_field($_POST['name']);
         $id = sanitize_text_field($_POST['id']);
+        $image = sanitize_text_field($_POST['image']);
+        $parent = sanitize_text_field($_POST['parent']);
         $category = Category::withId(intval($id));
         $category->name = $name;
+        $category->image = $image;
+        $category->parent = $parent;
         Category::save($category);
         wp_die();
     }
@@ -178,11 +184,13 @@ class CityGuide
                 `id` mediumint(9) NOT NULL AUTO_INCREMENT,
                 `created_on` datetime DEFAULT NOW() NOT NULL,
                 `name` tinytext NOT NULL,
+                `image` text NOT NULL,
+                `parent` mediumint(9),
                 PRIMARY KEY  (id)
                 ) $charset_collate;";
         $wpdb->query($sql);
         if (!Category::withId(1)) {
-            $category = new Category("Others", null, null);
+            $category = new Category("Others", null, null, null, null);
             Category::save($category);
         }
     }
